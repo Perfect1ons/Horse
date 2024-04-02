@@ -1,0 +1,169 @@
+@use "../../assets/scss/common/mixins" as mixin;
+
+.catalog {
+  margin-top: 100px;
+
+  &__title {
+    @include mixin.font(42px, 700, 125%, var(--dark-grey));
+    text-transform: uppercase;
+    text-align: center;
+    @media screen and (max-width: 480px) {
+      font-size: 24px;
+    }
+  }
+}
+
+.catalog__card {
+  margin-top: 60px;
+  background: var(--white);
+  box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  max-width: 450px;
+  @media screen and (max-width: 1200px) {
+    max-width: 310px;
+  }
+  @media screen and (max-width: 992px) {
+    max-width: 365px;
+  }
+  @media screen and (max-width: 768px) {
+    max-width: 280px;
+  }
+  @media screen and (max-width: 640px) {
+    max-width: 220px;
+  }
+  @media screen and (max-width: 480px) {
+    max-width: 100%;
+  }
+
+  &_image {
+    width: 100%;
+    @media screen and (max-width: 1200px) {
+      height: auto;
+      width: 310px;
+    }
+    @media screen and (max-width: 992px) {
+      width: 365px;
+    }
+    @media screen and (max-width: 768px) {
+      max-width: 280px;
+    }
+    @media screen and (max-width: 640px) {
+      max-width: 220px;
+    }
+    @media screen and (max-width: 480px) {
+      max-width: 100%;
+    }
+  }
+}
+
+.catalog__container {
+  width: 100%;
+  display: grid;
+  gap: 40px;
+  row-gap: 0px;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  @media screen and (max-width: 1200px) {
+    gap: 0px;
+  }
+  @media screen and (max-width: 992px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  @media screen and (max-width: 480px) {
+    justify-items: baseline;
+  }
+  @media screen and (max-width: 360px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.card__content {
+  @include mixin.flex(center, space-between, column);
+  padding: 30px 60px;
+  min-height: 330px;
+  @media screen and (max-width: 1200px) {
+    padding: 20px 40px;
+    min-height: 280px;
+  }
+  @media screen and (max-width: 992px) {
+    padding: 20px 40px;
+    min-height: 250px;
+  }
+  @media screen and (max-width: 640px) {
+    padding: 15px;
+    min-height: 230px;
+  }
+  @media screen and (max-width: 480px) {
+    max-width: 160px;
+    margin: 0 auto;
+  }
+  @media screen and (max-width: 360px) {
+    max-width: 100%;
+  }
+
+  &_title {
+    text-align: center;
+    @include mixin.font(30px, 600, 113%, var(--dark-grey));
+    @media screen and (max-width: 1200px) {
+      font-size: 24px;
+    }
+    @media screen and (max-width: 992px) {
+      font-size: 20px;
+    }
+    @media screen and (max-width: 360px) {
+      font-size: 24px;
+    }
+  }
+  &_price {
+    @include mixin.font(42px, 600, 110%, var(--dark-grey));
+    @media screen and (max-width: 1200px) {
+      font-size: 36px;
+    }
+    @media screen and (max-width: 992px) {
+      font-size: 24px;
+    }
+    @media screen and (max-width: 640px) {
+      font-size: 20px;
+    }
+  }
+  &_button {
+    width: 100%;
+    @include mixin.button(
+      12px 24px,
+      null,
+      2px solid var(--green),
+      40px,
+      var(--green),
+      20px,
+      700,
+      var(--white)
+    );
+    transition: 0.4s;
+    @media screen and (max-width: 640px) {
+      font-size: 18px;
+    }
+    &:hover {
+      background: transparent;
+      color: var(--green);
+    }
+  }
+
+  &_modal {
+    @include mixin.font(20px, 500, 120%, var(--gray));
+    cursor: pointer;
+    background: none;
+    transition: 0.3s;
+
+    &:hover {
+      color: var(--dark-grey);
+      transform: scale(1.2);
+    }
+    @media screen and (max-width: 640px) {
+      font-size: 16px;
+    }
+    @media screen and (max-width: 360px) {
+      font-size: 20px;
+    }
+  }
+}

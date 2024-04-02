@@ -1,0 +1,32 @@
+@use "../../assets/scss/common/mixins" as mixin;
+
+.header {
+  @include mixin.position(sticky, 0);
+  z-index: 999;
+  background: var(--white);
+}
+
+.header__container {
+  @include mixin.flex(center, space-between, null, null);
+  height: 100px;
+  width: 100%;
+}
+
+.header__content {
+  @include mixin.flex(center, null, null, 30px);
+}
+
+.header__phone {
+  @include mixin.font(18px, 600, null, var(--dark-grey));
+}
+
+@media screen and (max-width: 992px) {
+  .header__content {
+    justify-content: flex-end;
+    width: 100%;
+    margin-right: 30px;
+  }
+  .header__media {
+    display: none;
+  }
+}

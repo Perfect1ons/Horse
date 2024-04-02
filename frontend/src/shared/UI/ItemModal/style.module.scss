@@ -1,0 +1,68 @@
+@use "../../../assets/scss/common/mixins" as mixin;
+
+.modal {
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 1400px;
+  padding: 30px;
+  background: #fff;
+  border-radius: 20px;
+  z-index: 100;
+  box-shadow: 0 0 10px -6px rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  transition: transform 0.3s, visibility 0.3s;
+
+  &__exit {
+    @include mixin.flex(center, flex-end, null, null);
+    width: 100%;
+    cursor: pointer;
+  }
+}
+
+.show {
+  transform: translate(-50%, -50%) scale(1);
+  visibility: visible;
+}
+
+.modal__content {
+  @include mixin.flex(flex-start, space-between, null, 40px);
+  width: 100%;
+
+  &_info {
+    @include mixin.flex(flex-start, center, column, 10px);
+  }
+
+  &_title {
+    @include mixin.font(40px, 700, 111%, var(--dark-grey));
+    text-transform: uppercase;
+  }
+
+  &_price {
+    @include mixin.font(50px, 700, 108%, var(--dark-grey));
+    text-transform: uppercase;
+  }
+
+  &_button {
+    @include mixin.font(20px, 700, 120%, var(--dark-grey));
+    cursor: pointer;
+    border-radius: 40px;
+    padding: 16px 32px;
+
+    background: var(--green);
+    text-align: center;
+    color: var(--white);
+    border: 2px solid var(--green);
+    transition: 0.6s;
+  }
+  &_button:hover {
+    background: transparent;
+    color: var(--green);
+  }
+
+  &_detail {
+    @include mixin.font(20px, 700, 120%, var(--dark-grey));
+    margin-top: 10px;
+  }
+}

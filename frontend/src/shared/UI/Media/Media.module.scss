@@ -1,0 +1,17 @@
+@use "../../../assets/scss/common/mixins" as mixin;
+
+.contact__content {
+  @include mixin.flex(center, null, null, 30px);
+
+  &_media {
+    @include mixin.flex(center, null, null, 20px);
+  }
+
+  &_icon {
+    transition: 0.4s;
+  }
+
+  &_icon:hover {
+    transform: scale(1.1);
+  }
+}

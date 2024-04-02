@@ -1,0 +1,84 @@
+@use "../../../assets/scss/common/mixins" as mixin;
+
+.header__links {
+  @include mixin.flex(center, null, null, 40px);
+}
+
+.link {
+  @include mixin.link(18px, 600, var(--dark-grey));
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 2px;
+    border-radius: 12px;
+    background-color: var(--green);
+    transition: 0.6s ease-in;
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--green);
+  transition: width 0.3s ease, right 0.3s ease;
+}
+
+.active {
+  transition: 0.2s;
+  color: var(--green);
+}
+
+.active::after {
+  width: 100%;
+  right: 0;
+}
+
+.header__collapse {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 992px) {
+  .header__collapse {
+    max-width: 0;
+    height: 88.6vh;
+    overflow: hidden;
+    position: absolute;
+    top: 5.85rem;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background: rgb(255, 255, 255);
+    transition: 0.4s ease-in;
+    box-shadow: 12px 22px 22px var(--green);
+  }
+
+  .collapse__active {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .header__links {
+    height: 100vh;
+    width: 300px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,59 @@
+@use "../../../assets/scss/common/mixins" as mixin;
+
+.accordion__item {
+  border-bottom: 2px solid var(--light-grey);
+  padding: 25px 0;
+
+  &:last-of-type {
+    border: none;
+  }
+}
+
+.accordion__header {
+  @include mixin.flex(center, space-between, null, 20px);
+  width: 100%;
+  border: 0;
+  border-radius: 50px;
+  font-size: 22px;
+  cursor: pointer;
+
+  &_title {
+    @include mixin.font(30px, 600, 113%, var(--dark-grey));
+    @media screen and (max-width: 992px) {
+      font-size: 24px;
+    }
+    @media screen and (max-width: 640px) {
+      font-size: 20px;
+    }
+  }
+
+  &_button {
+    @include mixin.flex(center, center);
+    background: var(--light-grey);
+    border-radius: 50px;
+    padding: 20px 15px;
+    border: none;
+    outline: none;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  &_button.rotate {
+    transform: rotate(180deg);
+  }
+}
+
+.accordion__collapse {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  transition: height 1s;
+
+  &.open {
+    height: auto;
+  }
+  &_body {
+    @include mixin.font(18px, 400, 125%, var(--dark-grey));
+    padding: 30px 0px;
+  }
+}

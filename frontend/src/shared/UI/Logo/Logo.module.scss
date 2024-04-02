@@ -1,0 +1,11 @@
+@use "../../../assets/scss/common/mixins" as mixin;
+
+.logo {
+  @include mixin.flex(center, null, null, 15px);
+
+  &__title {
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+}

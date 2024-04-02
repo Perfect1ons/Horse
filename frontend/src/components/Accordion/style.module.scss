@@ -1,0 +1,22 @@
+@use "../../assets/scss/common/mixins" as mixin;
+
+.accordion {
+  margin-top: 100px;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 50px;
+  }
+  &__title {
+    @include mixin.font(48px, 700, 125%, var(--dark-grey));
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+    @media screen and (max-width: 768px) {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+    @media screen and (max-width: 480px) {
+      font-size: 24px;
+    }
+  }
+}

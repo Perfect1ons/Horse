@@ -1,0 +1,25 @@
+@use "../../assets/scss/common/mixins" as mixin;
+
+.services {
+  margin-top: 75px;
+}
+
+.services__container {
+  @include mixin.flex(center, space-between, null, 20px);
+  @media screen and (max-width: 944px) {
+    flex-wrap: wrap;
+  }
+}
+
+.services__content {
+  @include mixin.flex(center, null, null, 15px);
+
+  &_title {
+    max-width: 200px;
+    @include mixin.font(16px, 600, 125%, var(--dark-grey));
+    @media screen and (max-width: 640px) {
+      max-width: 100%;
+      font-size: 20px;
+    }
+  }
+}

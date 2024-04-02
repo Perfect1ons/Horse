@@ -1,0 +1,181 @@
+@use "../../../assets/scss/common/mixins" as mixin;
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  max-width: 650px;
+  padding: 30px;
+  background: #fff;
+  border-radius: 20px;
+  z-index: 100;
+  box-shadow: 0 0 10px -6px rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  transition: transform 0.3s, visibility 0.3s;
+
+  &__exit {
+    @include mixin.flex(center, flex-end, null, null);
+    width: 100%;
+    cursor: pointer;
+  }
+}
+
+.show {
+  transform: translate(-50%, -50%) scale(1);
+  visibility: visible;
+}
+
+.modal__content {
+  @include mixin.flex(flex-start, center, column, 15px);
+  @media screen and (max-width: 640px) {
+    gap: 5px;
+  }
+  &_title {
+    @include mixin.font(32px, 600, 113%, var(--dark-grey));
+    @media screen and (max-width: 640px) {
+      font-size: 24px;
+    }
+  }
+
+  &_desc {
+    @include mixin.font(18px, 400, 125%, var(--dark-grey));
+    @media screen and (max-width: 640px) {
+      font-size: 16px;
+    }
+  }
+}
+
+.modal__form {
+  margin-top: 34px;
+  @include mixin.flex(center, center, column, 20px);
+  @media screen and (max-width: 640px) {
+    margin-top: 15px;
+  }
+  &_input {
+    width: 470px;
+    border: 2px solid var(--input-grey);
+    border-radius: 10px;
+    padding: 15px;
+    @include mixin.font(18px, 400, 125%, var(--dark-grey));
+
+    @media screen and (max-width: 768px) {
+      width: 380px;
+    }
+    @media screen and (max-width: 480px) {
+      width: 285px;
+    }
+    @media screen and (max-width: 360px) {
+      width: 100%;
+    }
+  }
+
+  &_input::placeholder,
+  &_textarea::placeholder {
+    color: var(--dark-grey);
+  }
+
+  &_button {
+    width: 100%;
+    text-align: center;
+    @include mixin.button(
+      16px 32px,
+      null,
+      2px solid var(--green),
+      40px,
+      var(--green),
+      22px,
+      700,
+      var(--white)
+    );
+  }
+
+  &_textarea {
+    position: relative;
+    border: 2px solid var(--input-grey);
+    color: var(--dark-grey);
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+    width: 100%;
+    min-height: 155px;
+    resize: none;
+  }
+  &_warning {
+    color: red;
+  }
+
+  &_count {
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.modal__text {
+  width: 100%;
+  margin-top: 20px;
+  font-size: 22px;
+  text-align: center;
+  font-weight: lighter;
+  color: #262626;
+}
+
+// .modal__input {
+//   border: 2px solid #26262630;
+//   border-radius: 30px;
+//   padding: 20px 15px;
+//   margin-top: 25px;
+//   font-size: 20px;
+//   color: black;
+// }
+
+// .modal__input::placeholder {
+//   font-size: 20px;
+// }
+
+// .modal__title {
+//   text-align: center;
+//   font-size: 32px;
+//   font-weight: 500;
+// }
+
+// .modal__button {
+//   width: 100%;
+//   padding: 0px;
+// }
+
+// @media screen and (max-width: 768px) {
+//   .modal {
+//     max-width: 480px;
+//   }
+// }
+
+// @media screen and (max-width: 640px) {
+//   .modal {
+//     max-width: 390px;
+//   }
+//   .modal__title {
+//     font-size: 22px;
+//   }
+//   .modal__text {
+//     font-size: 18px;
+//   }
+// }
+
+// @media screen and (max-width: 480px) {
+//   .modal {
+//     max-width: 320px;
+//   }
+//   .modal__title {
+//     font-size: 22px;
+//   }
+//   .modal__text {
+//     font-size: 18px;
+//   }
+//   .modal__button {
+//     max-width: 100%;
+//   }
+//   .modal__input::placeholder {
+//     font-size: 16px;
+//   }
+// }
